@@ -27,7 +27,7 @@ while [[ $# -gt 0 ]]; do
     --vmname) VMNAME="$2"; shift 2 ;;
     --storage) STORAGE="$2"; shift 2 ;;
     --qcow_url) QCOW_URL="$2"; shift 2 ;;
-    --qcow_file) QCOW_FILE="$2"; shift 2 ;; # added qcow_file
+    --qcow_file) QCOW_FILE="$2"; shift 2 ;;
     --memory) MEMORY="$2"; shift 2 ;;
     --cores) CORES="$2"; shift 2 ;;
     --root_disk_size) ROOT_DISK_SIZE="$2"; shift 2 ;;
