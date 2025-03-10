@@ -8,7 +8,6 @@ QCOW_URL="https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generi
 QCOW_FILE="debian12-cloud.qcow2"
 MEMORY=8192
 CORES=4
-ROOT_DISK_SIZE=8
 BRIDGE="vmbr0"
 
 # Function to find a free VMID
@@ -30,7 +29,6 @@ while [[ $# -gt 0 ]]; do
     --qcow_file) QCOW_FILE="$2"; shift 2 ;;
     --memory) MEMORY="$2"; shift 2 ;;
     --cores) CORES="$2"; shift 2 ;;
-    --root_disk_size) ROOT_DISK_SIZE="$2"; shift 2 ;;
     --bridge) BRIDGE="$2"; shift 2 ;;
     *) echo "Unknown parameter: $1"; exit 1 ;;
   esac
