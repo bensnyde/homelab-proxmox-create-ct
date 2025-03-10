@@ -30,12 +30,14 @@ The script supports passing parameters via command-line arguments, allowing you 
 **Example Usage:**
 
 ```bash
-./create_template.sh --vmid 200 --vmname my-ubuntu-vm --memory 4096 --storage local-lvm --bridge vmbr0 --qcow_url "https://cloud-images.ubuntu.com/releases/jammy/release/ubuntu-22.04-server-cloudimg-amd64.img" --qcow_file ubuntu-cloud.qcow2
-```
-
-```bash
 ./create_template.sh --vmid 200 --vmname my-debian-vm --memory 4096 --storage local-lvm --bridge vmbr0 --qcow_url "https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-genericcloud-amd64.qcow2" --qcow_file debian12-cloud.qcow2
 ```
+
+Official Cloud Images:
+
+- Fedora: https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/x86_64/images/Fedora-Cloud-Base-Generic-41-1.4.x86_64.qcow2
+- Debiaa: https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-genericcloud-amd64.qcow2
+- Ubuntu: https://cloud-images.ubuntu.com/releases/jammy/release/ubuntu-22.04-server-cloudimg-amd64.img
 
 ## Scheduling with Cron
 
