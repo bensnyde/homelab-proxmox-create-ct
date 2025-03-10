@@ -1,6 +1,5 @@
 #!/bin/bash
 
-VMID=108
 VMNAME="debian12-cloud-ct"
 STORAGE="local-lvm"
 QCOW_URL="https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-genericcloud-amd64.qcow2"
@@ -8,6 +7,16 @@ QCOW_FILE="debian12-cloud.qcow2"
 MEMORY=8192
 CORES=4
 ROOT_DISK_SIZE=8
+
+# Function to find a free VMID
+find_free_vmid() {
+  local vmid=100  # Start checking from VMID 100
+  while qm status "$vmid" &> /dev/null; do
+    vmid=$((vmid + 1))
+  done
+}
+
+VMID=$(find_free_vmid)
 
 echo "Downloading Debian 12 Cloud-Init qcow2..."
 wget -O "$QCOW_FILE" "$QCOW_URL"
