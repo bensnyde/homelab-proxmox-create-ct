@@ -12,7 +12,31 @@ This bash script automates the creation of a Cloud-Init virtual machine within a
     * Run `chmod +x create_template.sh` to make the script executable.
 3.  **Run the Script:**
     * Execute the script with `./create_template.sh`.
-  
+
+## Passing Parameters
+
+The script supports passing parameters via command-line arguments, allowing you to customize the template creation. Here's a list of available parameters:
+
+* `--vmid`: The VMID for the new VM (if not provided, a free VMID will be automatically assigned).
+* `--vmname`: The name of the new VM template.
+* `--storage`: The storage location for the VM disk and cloud-init drive.
+* `--qcow_url`: The URL of the Cloud-Init qcow2 image.
+* `--qcow_file`: The filename to save the downloaded qcow2 image as.
+* `--memory`: The amount of RAM (in MB) for the VM.
+* `--cores`: The number of CPU cores for the VM.
+* `--root_disk_size`: The size of the root disk (in GB).
+* `--bridge`: The network bridge to use for the VM.
+
+**Example Usage:**
+
+```bash
+./create_template.sh --vmid 200 --vmname my-ubuntu-vm --memory 4096 --storage local-lvm --bridge vmbr0 --qcow_url "https://cloud-images.ubuntu.com/releases/jammy/release/ubuntu-22.04-server-cloudimg-amd64.img" --qcow_file ubuntu-cloud.qcow2
+```
+
+```bash
+./create_template.sh --vmid 200 --vmname my-debian-vm --memory 4096 --storage local-lvm --bridge vmbr0 --qcow_url "https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-genericcloud-amd64.qcow2" --qcow_file debian12-cloud.qcow2
+```
+
 ## Scheduling with Cron
 
 You can schedule this script to run periodically using cron, ensuring your Proxmox environment always has an up-to-date Cloud-Init template.
